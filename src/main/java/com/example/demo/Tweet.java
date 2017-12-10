@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
+
 
 @Entity
 public class Tweet {
@@ -38,7 +40,7 @@ public class Tweet {
     @Size(min = 1)
     private String sentby;
 
-    @DateTimeFormat(pattern = "")
+    @DateTimeFormat
     private String posteddate;
 
     public long getId() {

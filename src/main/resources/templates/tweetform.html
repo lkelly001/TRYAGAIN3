@@ -3,25 +3,42 @@
 <head>
     <meta charset="UTF-8" />
     <title>Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
 <form action="#"
       th:action="@{/process}"
       th:object="${tweet}"
       method="post">
-    Name <input type="text" th:field="*{name}" />
+    <div class="form-group">
+    Name <input type="text" class="form-control" th:field="*{name}" />
     <span th:if="${#fields.hasErrors('name')}"
           th:errors="*{name}"></span><br />
-    Content:<input type="text" th:field="*{content}" />
-    <span th:if="${#fields.hasErrors('content')}"
-          th:errors="*{content}"></span><br />
-    Sentby:<input type="text" th:field="*{sentby}" />
+    </div>
+    <div class="form-group">
+    @:<input type="text" class="form-control" th:field="*{sentby}" />
     <span th:if="${#fields.hasErrors('sentby')}"
           th:errors="*{sentby}"></span><br />
-    <input th:text="${#temporals.format(localDateTime,'MMM dd, yyyy HH:mm')}"
-           th:if="${#fields.hasErrors('posteddate')}"
-           th:errors="*{posteddate}" /><br />
-    <input type="submit" value="Tweet" />
+    </div>
+    <div class="form-group">
+    Content:<input type="text" class="form-control" th:field="*{content}" />
+    <span th:if="${#fields.hasErrors('content')}"
+          th:errors="*{content}"></span><br />
+    </div>
+    <div class="form-group">
+    Date <input type="date" class="form-control" th:field="*{posteddate}" /> <br />
+   <span th:if="${#fields.hasErrors('posteddate')}"
+    th:errors="*{posteddate}"></span><br />
+    </div>
+    <br />
+    <input type="submit" class="btn btn-default" value="Tweet" />
 </form>
 </body>
 </html>
