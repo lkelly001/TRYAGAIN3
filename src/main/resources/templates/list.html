@@ -22,9 +22,12 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <div th:each="tweet : ${tweets}">
-    <h4 th:inline="text">[[${tweet.name}]]</h4>  <h6 th:inline="text">@ [[${tweet.sentby}]]</h6>
-    <p th:text="${#temporals.format(localDateTime,'MMM dd, yyyy HH:mm')}">[[${tweet.posteddate}]]</p>
+
+
+    <h4 th:inline="text">[[${tweet.name}]] @[[${tweet.sentby}]]</h4>
     <p th:inline="text">[[${tweet.content}]]</p>
+    <p th:inline="text">Posted: [[${tweet.posteddate}]]</p>
+
 </div>
 
 </body>
